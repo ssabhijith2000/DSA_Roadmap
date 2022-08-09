@@ -1,9 +1,3 @@
-from cmath import sin
-from email import header
-from unittest.mock import NonCallableMagicMock
-from xml.dom.minicompat import NodeList
-
-
 class Node:
     def __init__(self, value=None) -> None:
         self.value = value
@@ -95,6 +89,13 @@ class SLinkedList:
                 nextNode = tempNode.next
                 tempNode.next = nextNode.next
 
+    def deleteEntireSLL(self):
+        if self.head is None:
+            print('SLL does not exist')
+        else:
+            self.head = None
+            self.tail = None
+
 
 singlyLinkedList = SLinkedList()
 singlyLinkedList.insert(1, 1)
@@ -104,3 +105,5 @@ singlyLinkedList.insert(21, 0)
 print([node.value for node in singlyLinkedList])
 # singlyLinkedList.traverse()
 print(singlyLinkedList.search(4))
+singlyLinkedList.deleteEntireSLL()
+print([node.value for node in singlyLinkedList])
