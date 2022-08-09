@@ -62,7 +62,54 @@ class CircularlyLinkedList:
                     break
 
     def search(self, nodeValue):
-        temp
+        tempNode = self.head
+        while tempNode:
+            if tempNode.value == nodeValue:
+                return tempNode.value
+            tempNode = tempNode.next
+            if tempNode == self.tail.next:
+                return "The node does not eist in this csll"
+
+    def deleteNode(self, position):
+        if self.head is None:
+            print("there is not any node in csll")
+
+        else:
+            if position == 0:
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+                    self.tail.next = self.head
+
+            elif position == 1:
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    node = self.head
+                    while node:
+                        if node.next == self.tail:
+                            break
+                        node = node.next
+                    node.next = self.head
+                    self.tail = node
+            else:
+                tempNode = self.head
+                index = 0
+                while index < position - 1:
+                    tempNode = tempNode.next
+                    index += 1
+                nextNode = tempNode.next
+                tempNode.next = nextNode.next
+
+    def deleteEntireCSLL(self):
+        self.head = None
+        self.tail.next = None
+        self.tail = None
 
 
 circularCLL = CircularlyLinkedList()
@@ -71,4 +118,6 @@ circularCLL.insert(3, 0)
 circularCLL.insert(22, 1)
 circularCLL.insert(11, 2)
 circularCLL.traversalCSSL()
-# print([node.value for node in circularCLL])
+circularCLL.deleteNode(0)
+# print(circularCLL.search(22))
+print([node.value for node in circularCLL])
