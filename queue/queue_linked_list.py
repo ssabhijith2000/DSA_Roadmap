@@ -63,6 +63,10 @@ class Queue:
         else:
             return self.linkedList.head
 
+    def delete(self):
+        self.linkedList.head = None
+        self.linkedList.tail = None
+
 
 custQueue = Queue()
 custQueue.enqueue(1)
