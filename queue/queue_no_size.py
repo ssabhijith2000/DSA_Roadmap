@@ -1,3 +1,6 @@
+import re
+
+
 class Queue:
     def __init__(self) -> None:
         self.items = []
@@ -28,6 +31,9 @@ class Queue:
             return "The element is not in the queue"
         else:
             return self.items[0]
+
+    def delete(self):
+        self.items = None
 
 
 customQueue = Queue()
