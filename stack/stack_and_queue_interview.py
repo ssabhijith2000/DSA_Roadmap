@@ -55,3 +55,5 @@ customStack.push(2, 1)
 customStack.push(3, 1)
 print(customStack.peek(1))
 print(customStack.isFull(0))
+
+# heeh
